@@ -1,0 +1,4 @@
+task: qimma_medarabiq_mcq_bias
+task_alias: mcq_bias
+dataset_name: mcq_bias
+include: _default_template_yaml

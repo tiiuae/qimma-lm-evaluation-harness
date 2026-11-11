@@ -1,0 +1,4 @@
+task: qimma_medarabiq_mcq_knowledge
+task_alias: mcq_knowledge
+dataset_name: mcq_knowledge
+include: _default_template_yaml

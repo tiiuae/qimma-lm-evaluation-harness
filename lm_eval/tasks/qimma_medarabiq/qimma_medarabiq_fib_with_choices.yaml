@@ -1,0 +1,4 @@
+task: qimma_medarabiq_fib_with_choices
+task_alias: fib_with_choices
+dataset_name: fib_with_choices
+include: _default_template_yaml

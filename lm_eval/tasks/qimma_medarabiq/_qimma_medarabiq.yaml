@@ -1,0 +1,8 @@
+group: qimma_medarabiq
+task:
+  - qimma_medarabiq_fib_with_choices
+  - qimma_medarabiq_mcq_bias
+  - qimma_medarabiq_mcq_knowledge
+  - qimma_medarabiq_fib_no_choices
+metadata:
+  version: 1.0
