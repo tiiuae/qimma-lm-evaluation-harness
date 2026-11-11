@@ -1,0 +1,4 @@
+task: qimma_medarabench_chemistry
+task_alias: Chemistry
+dataset_name: Chemistry
+include: _default_template_yaml

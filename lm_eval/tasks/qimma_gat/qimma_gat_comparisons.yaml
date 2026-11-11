@@ -1,0 +1,5 @@
+task: qimma_gat_comparisons
+task_alias: comparisons
+dataset_name: comparisons
+include: _default_template_yaml
+

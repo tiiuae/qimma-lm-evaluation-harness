@@ -1,0 +1,34 @@
+group: qimma_medarabench
+task:
+  - qimma_medarabench_anatomy
+  - qimma_medarabench_histology
+  - qimma_medarabench_histology_and_anatomy
+  - qimma_medarabench_histology_and_systemic_anatomy
+  - qimma_medarabench_anesthesia
+  - qimma_medarabench_biochemistry
+  - qimma_medarabench_cell_biology
+  - qimma_medarabench_genetics
+  - qimma_medarabench_physics
+  - qimma_medarabench_chemistry
+  - qimma_medarabench_embryology
+  - qimma_medarabench_emergency_medicine
+  - qimma_medarabench_gastroenterology
+  - qimma_medarabench_neurology
+  - qimma_medarabench_cardiology
+  - qimma_medarabench_thorasic_internal
+  - qimma_medarabench_oncology
+  - qimma_medarabench_chest_diseases
+  - qimma_medarabench_gastroenterology_and_hepatology
+  - qimma_medarabench_microbiology
+  - qimma_medarabench_ophthalmology
+  - qimma_medarabench_pathology
+  - qimma_medarabench_pharmacology
+  - qimma_medarabench_physiology
+  - qimma_medarabench_statistics
+  - qimma_medarabench_surgery
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1.0

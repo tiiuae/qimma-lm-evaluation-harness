@@ -1,0 +1,5 @@
+task: qimma_arabculture_tunisia
+task_alias: Tunisia
+dataset_name: Tunisia
+include: _default_template_yaml
+

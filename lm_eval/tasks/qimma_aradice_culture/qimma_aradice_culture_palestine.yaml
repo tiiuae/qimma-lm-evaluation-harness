@@ -1,0 +1,5 @@
+task: qimma_aradice_culture_palestine
+task_alias: Palestine
+dataset_name: Palestine
+include: _default_template_yaml
+

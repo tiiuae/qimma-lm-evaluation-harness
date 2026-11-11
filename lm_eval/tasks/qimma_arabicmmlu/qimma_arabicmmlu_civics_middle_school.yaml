@@ -1,0 +1,5 @@
+"dataset_name": "Civics (Middle School)"
+"include": "_default_qimma_arabicmmlu_template_yaml"
+"tag": "qimma_arabicmmlu_social_science_tasks"
+"task": "qimma_arabicmmlu_civics_middle_school"
+"task_alias": "Civics (Middle School)"

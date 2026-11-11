@@ -1,0 +1,5 @@
+task: qimma_3lm_syn_math
+task_alias: syn-math
+dataset_name: syn-math
+include: _default_template_yaml
+

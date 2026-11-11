@@ -1,0 +1,5 @@
+task: qimma_3lm_nat_math
+task_alias: nat-math
+dataset_name: nat-math
+include: _default_template_yaml
+

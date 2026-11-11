@@ -1,0 +1,4 @@
+task: qimma_medarabench_histology_and_systemic_anatomy
+task_alias: Histology and Systemic Anatomy
+dataset_name: Histology and Systemic Anatomy
+include: _default_template_yaml

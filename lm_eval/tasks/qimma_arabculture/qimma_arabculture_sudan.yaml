@@ -1,0 +1,5 @@
+task: qimma_arabculture_sudan
+task_alias: Sudan
+dataset_name: Sudan
+include: _default_template_yaml
+

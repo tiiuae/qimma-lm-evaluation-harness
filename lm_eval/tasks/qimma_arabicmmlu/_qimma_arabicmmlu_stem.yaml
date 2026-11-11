@@ -1,0 +1,10 @@
+group: qimma_arabicmmlu_stem
+group_alias: STEM
+task:
+  - qimma_arabicmmlu_stem_tasks
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1

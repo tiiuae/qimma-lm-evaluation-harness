@@ -1,0 +1,5 @@
+task: qimma_arabculture_ksa
+task_alias: KSA
+dataset_name: KSA
+include: _default_template_yaml
+

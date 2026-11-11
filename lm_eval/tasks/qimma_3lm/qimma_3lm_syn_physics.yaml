@@ -1,0 +1,5 @@
+task: qimma_3lm_syn_physics
+task_alias: syn-physics
+dataset_name: syn-physics
+include: _default_template_yaml
+

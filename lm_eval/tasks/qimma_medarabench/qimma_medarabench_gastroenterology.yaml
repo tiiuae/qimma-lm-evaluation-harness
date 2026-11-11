@@ -1,0 +1,4 @@
+task: qimma_medarabench_gastroenterology
+task_alias: Gastroenterology
+dataset_name: Gastroenterology
+include: _default_template_yaml

@@ -1,0 +1,13 @@
+group: qimma_arabicmmlu
+task:
+- qimma_arabicmmlu_other
+- qimma_arabicmmlu_social_science
+- qimma_arabicmmlu_humanities
+- qimma_arabicmmlu_stem
+- qimma_arabicmmlu_language
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1

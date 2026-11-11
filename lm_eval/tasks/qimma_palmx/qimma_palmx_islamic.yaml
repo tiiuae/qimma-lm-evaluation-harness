@@ -1,0 +1,4 @@
+task: qimma_palmx_islamic
+task_alias: islamic
+dataset_name: islamic
+include: _default_template_yaml

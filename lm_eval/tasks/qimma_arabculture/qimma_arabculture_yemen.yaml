@@ -1,0 +1,5 @@
+task: qimma_arabculture_yemen
+task_alias: Yemen
+dataset_name: Yemen
+include: _default_template_yaml
+

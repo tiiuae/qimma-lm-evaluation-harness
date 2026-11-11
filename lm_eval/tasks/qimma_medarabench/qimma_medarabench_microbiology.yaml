@@ -1,0 +1,4 @@
+task: qimma_medarabench_microbiology
+task_alias: Microbiology
+dataset_name: Microbiology
+include: _default_template_yaml

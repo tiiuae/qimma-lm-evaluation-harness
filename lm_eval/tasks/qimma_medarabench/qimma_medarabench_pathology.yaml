@@ -1,0 +1,4 @@
+task: qimma_medarabench_pathology
+task_alias: Pathology
+dataset_name: Pathology
+include: _default_template_yaml

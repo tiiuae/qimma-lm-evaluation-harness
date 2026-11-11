@@ -1,0 +1,10 @@
+group: qimma_arabicmmlu_language
+group_alias: Language
+task:
+  - qimma_arabicmmlu_language_tasks
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1

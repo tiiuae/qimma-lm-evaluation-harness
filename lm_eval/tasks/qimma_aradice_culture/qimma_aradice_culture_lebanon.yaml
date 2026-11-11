@@ -1,0 +1,5 @@
+task: qimma_aradice_culture_lebanon
+task_alias: Lebanon
+dataset_name: Lebanon
+include: _default_template_yaml
+

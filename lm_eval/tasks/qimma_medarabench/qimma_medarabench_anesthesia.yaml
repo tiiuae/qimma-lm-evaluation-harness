@@ -1,0 +1,4 @@
+task: qimma_medarabench_anesthesia
+task_alias: Anesthesia
+dataset_name: Anesthesia
+include: _default_template_yaml

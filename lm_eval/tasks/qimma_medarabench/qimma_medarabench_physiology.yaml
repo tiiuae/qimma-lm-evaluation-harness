@@ -1,0 +1,4 @@
+task: qimma_medarabench_physiology
+task_alias: Physiology
+dataset_name: Physiology
+include: _default_template_yaml

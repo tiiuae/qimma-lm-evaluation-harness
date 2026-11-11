@@ -1,0 +1,5 @@
+task: qimma_gat_geometry
+task_alias: geometry
+dataset_name: geometry
+include: _default_template_yaml
+

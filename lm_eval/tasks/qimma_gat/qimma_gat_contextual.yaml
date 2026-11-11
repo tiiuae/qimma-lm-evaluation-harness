@@ -1,0 +1,5 @@
+task: qimma_gat_contextual
+task_alias: contextual
+dataset_name: contextual
+include: _default_template_yaml
+

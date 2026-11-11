@@ -1,0 +1,4 @@
+task: qimma_medarabench_genetics
+task_alias: Genetics
+dataset_name: Genetics
+include: _default_template_yaml

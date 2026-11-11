@@ -1,0 +1,4 @@
+task: qimma_medarabench_ophthalmology
+task_alias: Ophthalmology
+dataset_name: Ophthalmology
+include: _default_template_yaml

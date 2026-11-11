@@ -1,0 +1,4 @@
+task: qimma_medarabench_neurology
+task_alias: Neurology
+dataset_name: Neurology
+include: _default_template_yaml

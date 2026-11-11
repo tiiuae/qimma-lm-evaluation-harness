@@ -1,0 +1,5 @@
+task: qimma_aradice_culture_egypt
+task_alias: Egypt
+dataset_name: Egypt
+include: _default_template_yaml
+

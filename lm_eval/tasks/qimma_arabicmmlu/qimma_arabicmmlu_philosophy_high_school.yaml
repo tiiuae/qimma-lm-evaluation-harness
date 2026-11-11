@@ -1,0 +1,5 @@
+"dataset_name": "Philosophy (High School)"
+"include": "_default_qimma_arabicmmlu_template_yaml"
+"tag": "qimma_arabicmmlu_humanities_tasks"
+"task": "qimma_arabicmmlu_philosophy_high_school"
+"task_alias": "Philosophy (High School)"

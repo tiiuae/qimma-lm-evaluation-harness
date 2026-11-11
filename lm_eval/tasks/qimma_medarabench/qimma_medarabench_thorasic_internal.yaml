@@ -1,0 +1,4 @@
+task: qimma_medarabench_thorasic_internal
+task_alias: Thorasic Internal
+dataset_name: Thorasic Internal
+include: _default_template_yaml

@@ -1,0 +1,5 @@
+task: qimma_aradice_culture_qatar
+task_alias: Qatar
+dataset_name: Qatar
+include: _default_template_yaml
+

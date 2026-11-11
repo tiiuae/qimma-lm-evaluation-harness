@@ -1,0 +1,4 @@
+task: qimma_medarabench_pharmacology
+task_alias: Pharmacology
+dataset_name: Pharmacology
+include: _default_template_yaml

@@ -1,0 +1,4 @@
+task: qimma_medarabench_chest_diseases
+task_alias: Chest Diseases
+dataset_name: Chest Diseases
+include: _default_template_yaml

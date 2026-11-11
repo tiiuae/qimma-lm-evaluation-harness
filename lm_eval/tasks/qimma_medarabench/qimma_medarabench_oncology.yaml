@@ -1,0 +1,4 @@
+task: qimma_medarabench_oncology
+task_alias: Oncology
+dataset_name: Oncology
+include: _default_template_yaml

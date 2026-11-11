@@ -1,0 +1,4 @@
+task: qimma_medarabench_biochemistry
+task_alias: Biochemistry
+dataset_name: Biochemistry
+include: _default_template_yaml

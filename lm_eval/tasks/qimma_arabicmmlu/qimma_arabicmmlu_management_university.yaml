@@ -1,0 +1,5 @@
+"dataset_name": "Management (University)"
+"include": "_default_qimma_arabicmmlu_template_yaml"
+"tag": "qimma_arabicmmlu_other_tasks"
+"task": "qimma_arabicmmlu_management_university"
+"task_alias": "Management (University)"

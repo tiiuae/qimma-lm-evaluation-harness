@@ -1,0 +1,4 @@
+task: qimma_medarabench_statistics
+task_alias: Statistics
+dataset_name: Statistics
+include: _default_template_yaml

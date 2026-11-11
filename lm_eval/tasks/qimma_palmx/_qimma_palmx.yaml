@@ -1,0 +1,10 @@
+group: qimma_palmx
+task:
+  - qimma_palmx_culture
+  - qimma_palmx_islamic
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1.0

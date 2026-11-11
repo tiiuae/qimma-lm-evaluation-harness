@@ -1,0 +1,5 @@
+task: qimma_aradice_culture_jordan
+task_alias: Jordan
+dataset_name: Jordan
+include: _default_template_yaml
+

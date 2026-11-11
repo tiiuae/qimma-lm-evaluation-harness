@@ -1,0 +1,5 @@
+task: qimma_3lm_nat_biology
+task_alias: nat-biology
+dataset_name: nat-biology
+include: _default_template_yaml
+

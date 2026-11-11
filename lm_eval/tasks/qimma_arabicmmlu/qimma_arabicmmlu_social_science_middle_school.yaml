@@ -1,0 +1,5 @@
+"dataset_name": "Social Science (Middle School)"
+"include": "_default_qimma_arabicmmlu_template_yaml"
+"tag": "qimma_arabicmmlu_social_science_tasks"
+"task": "qimma_arabicmmlu_social_science_middle_school"
+"task_alias": "Social Science (Middle School)"

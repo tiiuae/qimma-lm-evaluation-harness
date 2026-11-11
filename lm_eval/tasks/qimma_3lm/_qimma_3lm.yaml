@@ -1,0 +1,19 @@
+group: qimma_3lm
+task:
+  - qimma_3lm_nat_chemistry
+  - qimma_3lm_nat_physics
+  - qimma_3lm_nat_biology
+  - qimma_3lm_nat_math
+  - qimma_3lm_nat_geography
+  - qimma_3lm_syn_biology
+  - qimma_3lm_syn_chemistry
+  - qimma_3lm_syn_general_science
+  - qimma_3lm_syn_math
+  - qimma_3lm_syn_physics
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1.0
+

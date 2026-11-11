@@ -1,0 +1,5 @@
+task: qimma_3lm_syn_chemistry
+task_alias: syn-chemistry
+dataset_name: syn-chemistry
+include: _default_template_yaml
+

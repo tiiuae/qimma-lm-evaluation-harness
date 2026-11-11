@@ -1,0 +1,5 @@
+task: qimma_3lm_syn_general_science
+task_alias: syn-general_science
+dataset_name: syn-general_science
+include: _default_template_yaml
+

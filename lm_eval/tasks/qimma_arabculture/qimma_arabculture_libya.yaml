@@ -1,0 +1,5 @@
+task: qimma_arabculture_libya
+task_alias: Libya
+dataset_name: Libya
+include: _default_template_yaml
+

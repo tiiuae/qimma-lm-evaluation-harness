@@ -1,0 +1,18 @@
+group: qimma_gat
+task:
+  - qimma_gat_analogy
+  - qimma_gat_arithmetic
+  - qimma_gat_association
+  - qimma_gat_completion
+  - qimma_gat_reading
+  - qimma_gat_algebra
+  - qimma_gat_comparisons
+  - qimma_gat_contextual
+  - qimma_gat_geometry
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1.0
+

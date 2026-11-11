@@ -1,0 +1,4 @@
+task: qimma_medarabench_physics
+task_alias: Physics
+dataset_name: Physics
+include: _default_template_yaml

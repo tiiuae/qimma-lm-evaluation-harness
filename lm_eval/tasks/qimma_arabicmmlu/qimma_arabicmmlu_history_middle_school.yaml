@@ -1,0 +1,5 @@
+"dataset_name": "History (Middle School)"
+"include": "_default_qimma_arabicmmlu_template_yaml"
+"tag": "qimma_arabicmmlu_humanities_tasks"
+"task": "qimma_arabicmmlu_history_middle_school"
+"task_alias": "History (Middle School)"

@@ -1,0 +1,5 @@
+task: qimma_gat_analogy
+task_alias: analogy
+dataset_name: analogy
+include: _default_template_yaml
+

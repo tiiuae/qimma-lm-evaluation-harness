@@ -1,0 +1,5 @@
+task: qimma_3lm_syn_biology
+task_alias: syn-biology
+dataset_name: syn-biology
+include: _default_template_yaml
+

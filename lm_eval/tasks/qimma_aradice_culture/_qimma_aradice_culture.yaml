@@ -1,0 +1,15 @@
+group: qimma_aradice_culture
+task:
+  - qimma_aradice_culture_egypt
+  - qimma_aradice_culture_jordan
+  - qimma_aradice_culture_lebanon
+  - qimma_aradice_culture_palestine
+  - qimma_aradice_culture_qatar
+  - qimma_aradice_culture_syria
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1.0
+

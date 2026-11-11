@@ -1,0 +1,5 @@
+task: qimma_3lm_nat_chemistry
+task_alias: nat-chemistry
+dataset_name: nat-chemistry
+include: _default_template_yaml
+

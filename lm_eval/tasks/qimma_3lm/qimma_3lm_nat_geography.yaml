@@ -1,0 +1,5 @@
+task: qimma_3lm_nat_geography
+task_alias: nat-geography
+dataset_name: nat-geography
+include: _default_template_yaml
+

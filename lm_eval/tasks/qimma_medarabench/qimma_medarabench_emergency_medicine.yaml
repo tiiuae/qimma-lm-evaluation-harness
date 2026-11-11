@@ -1,0 +1,4 @@
+task: qimma_medarabench_emergency_medicine
+task_alias: Emergency Medicine
+dataset_name: Emergency Medicine
+include: _default_template_yaml

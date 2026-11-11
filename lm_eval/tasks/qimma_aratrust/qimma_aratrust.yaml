@@ -1,0 +1,3 @@
+task: qimma_aratrust
+task_alias: AraTrust
+include: _default_template_yaml

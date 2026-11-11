@@ -1,0 +1,5 @@
+task: qimma_gat_reading
+task_alias: reading
+dataset_name: reading
+include: _default_template_yaml
+

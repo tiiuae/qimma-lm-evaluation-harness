@@ -1,0 +1,5 @@
+task: qimma_gat_completion
+task_alias: completion
+dataset_name: completion
+include: _default_template_yaml
+

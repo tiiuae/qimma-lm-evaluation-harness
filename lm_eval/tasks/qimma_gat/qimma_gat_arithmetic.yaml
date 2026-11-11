@@ -1,0 +1,5 @@
+task: qimma_gat_arithmetic
+task_alias: arithmetic
+dataset_name: arithmetic
+include: _default_template_yaml
+

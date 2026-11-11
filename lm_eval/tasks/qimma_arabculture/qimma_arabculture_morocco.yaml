@@ -1,0 +1,5 @@
+task: qimma_arabculture_morocco
+task_alias: Morocco
+dataset_name: Morocco
+include: _default_template_yaml
+

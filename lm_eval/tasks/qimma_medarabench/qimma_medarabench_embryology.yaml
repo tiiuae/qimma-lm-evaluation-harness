@@ -1,0 +1,4 @@
+task: qimma_medarabench_embryology
+task_alias: Embryology
+dataset_name: Embryology
+include: _default_template_yaml

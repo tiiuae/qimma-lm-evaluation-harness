@@ -1,0 +1,5 @@
+task: qimma_arabculture_uae
+task_alias: UAE
+dataset_name: UAE
+include: _default_template_yaml
+

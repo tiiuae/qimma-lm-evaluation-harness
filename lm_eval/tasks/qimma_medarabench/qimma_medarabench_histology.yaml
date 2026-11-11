@@ -1,0 +1,4 @@
+task: qimma_medarabench_histology
+task_alias: Histology
+dataset_name: Histology
+include: _default_template_yaml

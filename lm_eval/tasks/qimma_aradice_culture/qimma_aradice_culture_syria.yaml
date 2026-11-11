@@ -1,0 +1,4 @@
+task: qimma_aradice_culture_syria
+task_alias: Syria
+dataset_name: Syria
+include: _default_template_yaml

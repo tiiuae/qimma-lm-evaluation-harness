@@ -1,0 +1,4 @@
+task: qimma_medarabench_surgery
+task_alias: Surgery
+dataset_name: Surgery
+include: _default_template_yaml

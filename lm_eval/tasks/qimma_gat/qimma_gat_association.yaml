@@ -1,0 +1,5 @@
+task: qimma_gat_association
+task_alias: association
+dataset_name: association
+include: _default_template_yaml
+

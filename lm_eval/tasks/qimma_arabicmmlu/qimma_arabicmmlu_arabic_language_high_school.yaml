@@ -1,0 +1,5 @@
+"dataset_name": "Arabic Language (High School)"
+"include": "_default_qimma_arabicmmlu_template_yaml"
+"tag": "qimma_arabicmmlu_language_tasks"
+"task": "qimma_arabicmmlu_arabic_language_high_school"
+"task_alias": "Arabic Language (High School)"

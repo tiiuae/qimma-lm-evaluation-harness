@@ -1,0 +1,10 @@
+group: qimma_arabicmmlu_other
+group_alias: Other
+task:
+  - qimma_arabicmmlu_other_tasks
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1

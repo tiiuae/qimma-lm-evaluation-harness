@@ -1,0 +1,22 @@
+group: qimma_arabculture
+task:
+  - qimma_arabculture_algeria
+  - qimma_arabculture_egypt
+  - qimma_arabculture_jordan
+  - qimma_arabculture_ksa
+  - qimma_arabculture_lebanon
+  - qimma_arabculture_libya
+  - qimma_arabculture_morocco
+  - qimma_arabculture_palestine
+  - qimma_arabculture_sudan
+  - qimma_arabculture_syria
+  - qimma_arabculture_tunisia
+  - qimma_arabculture_uae
+  - qimma_arabculture_yemen
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1.0
+

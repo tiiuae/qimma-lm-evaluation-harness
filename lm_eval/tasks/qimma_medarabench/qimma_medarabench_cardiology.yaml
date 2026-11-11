@@ -1,0 +1,4 @@
+task: qimma_medarabench_cardiology
+task_alias: Cardiology
+dataset_name: Cardiology
+include: _default_template_yaml

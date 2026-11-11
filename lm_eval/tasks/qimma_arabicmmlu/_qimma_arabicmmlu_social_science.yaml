@@ -1,0 +1,10 @@
+group: qimma_arabicmmlu_social_science
+group_alias: Social Science
+task:
+  - qimma_arabicmmlu_social_science_tasks
+aggregate_metric_list:
+  - metric: exact_match
+    aggregation: mean
+    weight_by_size: true
+metadata:
+  version: 1

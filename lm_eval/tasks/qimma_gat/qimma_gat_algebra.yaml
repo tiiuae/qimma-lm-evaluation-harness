@@ -1,0 +1,5 @@
+task: qimma_gat_algebra
+task_alias: algebra
+dataset_name: algebra
+include: _default_template_yaml
+

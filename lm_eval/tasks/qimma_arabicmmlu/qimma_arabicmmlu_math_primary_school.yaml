@@ -1,0 +1,5 @@
+"dataset_name": "Math (Primary School)"
+"include": "_default_qimma_arabicmmlu_template_yaml"
+"tag": "qimma_arabicmmlu_stem_tasks"
+"task": "qimma_arabicmmlu_math_primary_school"
+"task_alias": "Math (Primary School)"

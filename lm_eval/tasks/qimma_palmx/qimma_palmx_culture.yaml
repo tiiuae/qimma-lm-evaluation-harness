@@ -1,0 +1,4 @@
+task: qimma_palmx_culture
+task_alias: culture
+dataset_name: culture
+include: _default_template_yaml

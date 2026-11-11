@@ -1,0 +1,4 @@
+task: qimma_medarabench_cell_biology
+task_alias: Cell Biology
+dataset_name: Cell Biology
+include: _default_template_yaml

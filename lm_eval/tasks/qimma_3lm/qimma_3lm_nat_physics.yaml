@@ -1,0 +1,5 @@
+task: qimma_3lm_nat_physics
+task_alias: nat-physics
+dataset_name: nat-physics
+include: _default_template_yaml
+

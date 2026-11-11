@@ -1,0 +1,5 @@
+"dataset_name": "Computer Science (High School)"
+"include": "_default_qimma_arabicmmlu_template_yaml"
+"tag": "qimma_arabicmmlu_stem_tasks"
+"task": "qimma_arabicmmlu_computer_science_high_school"
+"task_alias": "Computer Science (High School)"

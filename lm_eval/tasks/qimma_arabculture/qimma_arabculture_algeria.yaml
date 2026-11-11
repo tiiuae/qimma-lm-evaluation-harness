@@ -1,0 +1,5 @@
+task: qimma_arabculture_algeria
+task_alias: Algeria
+dataset_name: Algeria
+include: _default_template_yaml
+
