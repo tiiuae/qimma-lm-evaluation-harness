@@ -610,6 +610,7 @@ class VLLM(TemplateLM):
                     max_model_len=self.max_length,
                     side=self.truncation_side,
                     verbose=True,
+                    shrink_gen_toks=True
                 )
                 context_encoding_truncated.append(toks)
 
