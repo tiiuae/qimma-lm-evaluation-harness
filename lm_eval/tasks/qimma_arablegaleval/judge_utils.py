@@ -1,27 +1,31 @@
 """Local LLM-as-judge scoring for QIMMA AraLegalEval."""
 
-import os
 import re
-from functools import lru_cache
 from typing import Any
 
+from lm_eval.tasks._qimma_judge import load_judge as _load_judge
 from lm_eval.tasks._qimma_reasoning import answer_after_thinking
 from lm_eval.tasks.qimma_arablegaleval.utils import doc_to_target
 
 
-DEFAULT_JUDGE_MODEL = "Qwen/Qwen3.5-4B"
 DEFAULT_MAX_NEW_TOKENS = 512
 _VERDICT_RE = re.compile(r"\[\[\s*([01])\s*\]\]")
 
-_SYSTEM_PROMPT = """أنت محكّم خبير في القانون العربي. قيّم إجابة النموذج اعتماداً فقط على السؤال والإجابة المرجعية.
+_SYSTEM_PROMPT = """أنت محكّم خبير في الأسئلة القانونية العربية. مهمتك تحديد ما إذا كانت إجابة النموذج مطابقة في المعنى للإجابة المرجعية.
+الإجابة المرجعية هي المعيار الوحيد للصواب. لا تستخدم معرفتك القانونية لقبول إجابة تختلف عن المرجع، حتى لو بدت لك معقولة.
 
 قواعد التقييم:
-- امنح 1 إذا كانت الإجابة صحيحة في المعنى وتغطي الجواب القانوني المطلوب، حتى مع اختلاف الصياغة.
-- امنح 0 إذا كانت خاطئة، أو تناقض المرجع، أو تفتقد معلومة جوهرية، أو لا تجيب عن السؤال.
-- لا تعاقب على اختلافات أسلوبية أو تفاصيل إضافية صحيحة.
-- إذا احتوت الإجابة على معلومات إضافية خاطئة أو متناقضة، امنح 0.
 
-المطلوب منك هو التقييم فقط، ولا حاجة إلى أي تفكير أو تعليل أو شرح أو نص إضافي.
+1. المطابقة في المعنى لا في اللفظ: اقبل المرادفات والصياغات القانونية المكافئة والاختصارات والترجمة بين العربية والإنجليزية للمفهوم القانوني نفسه.
+2. يجب أن يتطابق الحكم أو المفهوم أو القاعدة أو الجهة أو الإجراء القانوني المحدد مع المرجع. إذا ذكرت الإجابة مفهوماً أو حكماً أو جهة أو إجراءً مختلفاً، فهي خاطئة حتى لو كان قريباً منه أو من المجال القانوني نفسه.
+3. إذا كان السؤال يتطلب عدة عناصر أو شروط أو آثار قانونية، فيجب أن تكون جميع العناصر المطلوبة صحيحة ومكتملة. إذا كان عنصر جوهري واحد خاطئاً أو ناقصاً فالدرجة 0. لا توجد درجات جزئية.
+4. الإجابة الأعم من المطلوب أو المبهمة تُعتبر خاطئة إذا كان المرجع يحدد حكماً أو مفهوماً أو جهة أو إجراءً بعينه.
+5. ذكر عدة احتمالات متعارضة أو التردد بينها يُعتبر خاطئاً، ما لم تكن الإجابة المرجعية نفسها تتطلب تعدد الاحتمالات.
+6. لا تعاقب على اختلاف الأسلوب أو على تفاصيل إضافية صحيحة. أما الإضافات الخاطئة أو المتناقضة مع المرجع فتجعل الدرجة 0.
+7. عند الشك، امنح 0.
+
+صيغة الرد:
+اكتب الحكم النهائي فقط دون مقارنة أو تعليل أو شرح أو أي نص إضافي.
 يجب أن يكون ردك كاملاً واحداً من الخيارين التاليين فقط: [[1]] أو [[0]]."""
 
 
@@ -39,25 +43,6 @@ def _parse_verdict(text: str) -> float:
     if not matches or len(set(matches)) != 1:
         return 0.0
     return float(matches[-1])
-
-
-@lru_cache(maxsize=1)
-def _load_judge():
-    try:
-        from transformers import AutoModelForCausalLM, AutoTokenizer
-    except ImportError as exc:
-        raise ModuleNotFoundError(
-            "qimma_arablegaleval requires transformers and accelerate."
-        ) from exc
-
-    model_name = os.getenv("QIMMA_LEGAL_JUDGE_MODEL", DEFAULT_JUDGE_MODEL)
-    device_map = os.getenv("QIMMA_LEGAL_JUDGE_DEVICE_MAP", "auto")
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(
-        model_name, torch_dtype="auto", device_map=device_map
-    )
-    model.eval()
-    return model, tokenizer
 
 
 def _context_length(model, tokenizer) -> int:

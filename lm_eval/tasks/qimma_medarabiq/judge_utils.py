@@ -1,28 +1,34 @@
 """LLM-as-judge scoring for the generative QIMMA MedArabiQ subset."""
 
-import os
 import re
-from functools import lru_cache
 from typing import Any
 
+from lm_eval.tasks._qimma_judge import load_judge as _load_judge
 from lm_eval.tasks._qimma_reasoning import answer_after_thinking
 from lm_eval.tasks.qimma_medarabiq.qa_utils import doc_to_target
 
 
-DEFAULT_JUDGE_MODEL = "Qwen/Qwen3.5-4B"
 DEFAULT_MAX_NEW_TOKENS = 512
 _VERDICT_RE = re.compile(r"\[\[\s*([01])\s*\]\]")
 
-_SYSTEM_PROMPT = """أنت محكّم خبير في الأسئلة الطبية العربية. قيّم إجابة النموذج اعتماداً فقط على السؤال والإجابة المرجعية.
+_SYSTEM_PROMPT = """أنت محكّم خبير في الأسئلة الطبية العربية. مهمتك تحديد ما إذا كانت إجابة النموذج مطابقة في المعنى للإجابة المرجعية.
+الإجابة المرجعية هي المعيار الوحيد للصواب. لا تستخدم معرفتك الطبية لقبول إجابة تختلف عن المرجع، حتى لو بدت لك معقولة.
 
 قواعد التقييم:
-- امنح 1 إذا كانت الإجابة صحيحة في المعنى وتغطي الجواب المطلوب، حتى مع اختلاف الصياغة.
-- امنح 0 إذا كانت خاطئة، أو تناقض المرجع، أو تفتقد معلومة جوهرية، أو لا تجيب عن السؤال.
-- لا تعاقب على اختلافات أسلوبية أو تفاصيل إضافية صحيحة.
-- إذا احتوت الإجابة على معلومات إضافية خاطئة أو متناقضة، امنح 0.
 
-المطلوب منك هو التقييم فقط، ولا حاجة إلى أي تفكير أو تعليل أو شرح أو نص إضافي.
-يجب أن يكون ردك كاملاً واحداً من الخيارين التاليين فقط: [[1]] أو [[0]]."""
+1. المطابقة في المعنى لا في اللفظ: اقبل المرادفات والاختصارات والترجمة بين العربية والإنجليزية والأسماء العلمية لنفس الشيء (مثال: VZV = فيروس الحماق النطاقي).
+2. يجب أن يتطابق الكيان المحدد: إذا ذكرت الإجابة مرضاً أو ممرضاً أو دواءً أو فئة دوائية أو بنية تشريحية أو مادة مختلفة عن المرجع، فهي خاطئة حتى لو كانت من نفس العائلة أو قريبة منها.
+   أمثلة: فيروس الهربس البسيط ≠ فيروس الحماق النطاقي، البكتيريا ≠ فيروس الورم الحليمي البشري، البنسلين ≠ السيفالوسبورينات، الانصباب ≠ الإفرازات.
+3. الأسئلة متعددة الفراغات: قيّم كل فراغ على حدة. يجب أن تكون جميع الفراغات صحيحة. إذا كان فراغ واحد خاطئاً أو ناقصاً فالدرجة 0. لا توجد درجات جزئية.
+4. الإجابة الأعم من المطلوب (مثل "بكتيريا" أو "عدوى" بدلاً من ممرض محدد) تُعتبر خاطئة.
+5. ذكر عدة احتمالات أو التردد بينها يُعتبر خاطئاً.
+6. لا تعاقب على اختلاف الأسلوب أو على تفاصيل إضافية صحيحة. أما الإضافات الخاطئة أو المتناقضة مع المرجع فتجعل الدرجة 0.
+7. عند الشك، امنح 0.
+
+صيغة الرد:
+اكتب سطراً واحداً قصيراً يقارن كل فراغ بالمرجع، ثم الحكم النهائي في سطر مستقل:
+المقارنة: <فراغ 1: مطابق/غير مطابق، فراغ 2: ...>
+الحكم: [[1]] أو [[0]]"""
 
 
 def _build_judge_prompt(question: str, reference: str, prediction: str) -> str:
@@ -39,24 +45,6 @@ def _parse_verdict(text: str) -> float:
     if not matches or len(set(matches)) != 1:
         return 0.0
     return float(matches[-1])
-
-
-@lru_cache(maxsize=1)
-def _load_judge():
-    try:
-        from transformers import AutoModelForCausalLM, AutoTokenizer
-    except ImportError as exc:
-        raise ModuleNotFoundError(
-            "qimma_medarabiq requires transformers and accelerate."
-        ) from exc
-    model_name = os.getenv("QIMMA_MEDARABIQ_JUDGE_MODEL", DEFAULT_JUDGE_MODEL)
-    device_map = os.getenv("QIMMA_MEDARABIQ_JUDGE_DEVICE_MAP", "auto")
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(
-        model_name, torch_dtype="auto", device_map=device_map
-    )
-    model.eval()
-    return model, tokenizer
 
 
 def _context_length(model, tokenizer) -> int:

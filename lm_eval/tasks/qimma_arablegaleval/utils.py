@@ -2,7 +2,7 @@ from typing import Any
 
 
 def doc_to_text(doc: dict[str, Any]) -> str:
-    return doc["prompt"]
+    return doc["question"]
 
 
 def doc_to_target(doc: dict[str, Any]) -> str:

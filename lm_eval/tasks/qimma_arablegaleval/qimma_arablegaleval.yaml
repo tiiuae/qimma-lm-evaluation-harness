@@ -21,4 +21,3 @@ metric_list:
     higher_is_better: true
 metadata:
   version: 1.0
-  judge_model: Qwen/Qwen3.5-4B
